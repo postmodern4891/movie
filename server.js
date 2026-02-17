@@ -46,6 +46,14 @@ app.get('/api/search', async (req, res) => {
       return match ? match.Value : 'N/A';
     };
 
+    const pickFirstRating = (sources) => {
+      for (const source of sources) {
+        const value = pickRating(source);
+        if (value !== 'N/A') return value;
+      }
+      return 'N/A';
+    };
+
     res.json({
       title: data.Title,
       year: data.Year,
@@ -54,6 +62,12 @@ app.get('/api/search', async (req, res) => {
       imdbVotes: data.imdbVotes || 'N/A',
       metacritic: data.Metascore && data.Metascore !== 'N/A' ? `${data.Metascore}/100` : pickRating('Metacritic'),
       rottenTomatoes: pickRating('Rotten Tomatoes'),
+      rottenAudience: pickFirstRating([
+        'Rotten Tomatoes Audience',
+        'Rotten Tomatoes (Audience)',
+        'Rotten Audience',
+        'Popcornmeter'
+      ]),
       plot: data.Plot || '',
       genre: data.Genre || ''
     });

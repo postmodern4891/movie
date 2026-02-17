@@ -22,6 +22,10 @@ function renderMovie(data) {
           <div class="label">Rotten Tomatoes</div>
           <div class="value">${data.rottenTomatoes}</div>
         </div>
+        <div class="card">
+          <div class="label">Rotten Audience</div>
+          <div class="value">${data.rottenAudience || 'N/A'}</div>
+        </div>
       </div>
       <p>${data.plot || ''}</p>
     </div>
