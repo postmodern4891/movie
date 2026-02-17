@@ -7,7 +7,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const OMDB_API_KEY = process.env.OMDB_API_KEY;
+const OMDB_API_KEY = (process.env.OMDB_API_KEY || '')
+  .replace(/^\uFEFF/, '')
+  .trim();
 
 app.use(cors());
 app.use(express.json());
@@ -30,6 +32,12 @@ app.get('/api/search', async (req, res) => {
     const data = await response.json();
 
     if (data.Response === 'False') {
+      if ((data.Error || '').toLowerCase().includes('invalid api key')) {
+        return res.status(401).json({
+          error: 'OMDb API 키가 유효하지 않거나 아직 활성화되지 않았습니다. 키 확인 후 다시 시도해주세요.'
+        });
+      }
+
       return res.status(404).json({ error: data.Error || '영화를 찾을 수 없습니다.' });
     }
 
