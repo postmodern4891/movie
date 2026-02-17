@@ -45,6 +45,10 @@ h1 {
 .search-box {
   display: flex;
   gap: 10px;
+}
+
+.search-wrap {
+  position: relative;
   margin: 18px 0;
 }
 
@@ -73,6 +77,42 @@ button:hover {
 .status {
   min-height: 24px;
   color: var(--muted);
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.suggestion-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.suggestion-btn:hover {
+  background: #f3f4f6;
+}
+
+.suggestion-btn span {
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .result {
@@ -117,6 +157,60 @@ button:hover {
   font-size: 20px;
   font-weight: 700;
   margin-top: 4px;
+}
+
+.ott-box {
+  margin-top: 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.ott-box h3 {
+  margin: 0 0 10px;
+}
+
+.ott-row {
+  margin-bottom: 10px;
+}
+
+.ott-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.ott-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.ott-message {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.ott-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #0b5d57;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.ott-link:hover {
+  text-decoration: underline;
 }
 
 .hidden {

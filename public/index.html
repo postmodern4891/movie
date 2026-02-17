@@ -9,12 +9,15 @@
   <body>
     <main class="container">
       <h1>Movie Score Search</h1>
-      <p class="subtitle">영화 제목을 검색하면 IMDb / Metacritic / Rotten Tomatoes 점수를 보여줍니다.</p>
+      <p class="subtitle">자동완성 검색으로 영화를 찾고 IMDb / Metacritic / Rotten Tomatoes 점수와 한국 OTT 제공처를 확인하세요.</p>
 
-      <form id="searchForm" class="search-box">
-        <input id="titleInput" type="text" placeholder="예: Inception" required />
-        <button type="submit">검색</button>
-      </form>
+      <div class="search-wrap">
+        <form id="searchForm" class="search-box">
+          <input id="titleInput" type="text" placeholder="예: Inception" autocomplete="off" required />
+          <button type="submit">검색</button>
+        </form>
+        <ul id="suggestions" class="suggestions hidden"></ul>
+      </div>
 
       <section id="status" class="status"></section>
       <section id="result" class="result hidden"></section>

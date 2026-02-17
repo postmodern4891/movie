@@ -7,3 +7,5 @@
     envVars:
       - key: OMDB_API_KEY
         sync: false
+      - key: TMDB_API_KEY
+        sync: false
