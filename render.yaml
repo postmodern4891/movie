@@ -1,0 +1,9 @@
+﻿services:
+  - type: web
+    name: movie-score-search
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: OMDB_API_KEY
+        sync: false

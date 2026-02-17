@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Score Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Movie Score Search</h1>
+      <p class="subtitle">영화 제목을 검색하면 IMDb / Metacritic / Rotten Tomatoes 점수를 보여줍니다.</p>
+
+      <form id="searchForm" class="search-box">
+        <input id="titleInput" type="text" placeholder="예: Inception" required />
+        <button type="submit">검색</button>
+      </form>
+
+      <section id="status" class="status"></section>
+      <section id="result" class="result hidden"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
